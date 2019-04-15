@@ -1,0 +1,21 @@
+FROM tensorflow/tensorflow:1.12.0-gpu-py3
+#FROM tensorflow/tensorflow:latest-gpu-py3
+MAINTAINER Philipp Mostosi <philipp.mostosi@stud-mail.uni-wuerzburg.de>
+
+# create and enter working directory
+RUN mkdir /opt/hpx/
+WORKDIR /opt/hpx
+
+# transfer files from the repository to the container /opt/hpx/
+COPY source /opt/hpx/
+COPY network/ /opt/hpx/
+
+# update container repository
+RUN apt-get update
+
+# install requirements
+RUN python -m pip --default-timeout=100 install --upgrade pip
+RUN pip install -r /haruspex/requirements.txt
+
+# define entry point with current neural network
+ENTRYPOINT ["/usr/bin/python3", "/opt/hpx/hpx_unet_190116.py", "-n", "/opt/hpx/hpx_190116"]
