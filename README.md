@@ -68,11 +68,15 @@ You may need to specify their full path for them to work (e.g. `anaconda/bin/act
    * `conda create --name hpx --file conda/conda_requirements.txt`  
    **OR**
    * `conda env create -f conda/conda_haruspex_190116.yml`
-
+   
+4. Install mrcfile using pip (conda does not provide packages!)
+   * `source activate hpx`
+   * **NOTE**: you can leave the environment using `deactivate`
+   * `pip install mrcfile`
 
 ### Predicting Maps
 
-1. Enter the ~~Matrix~~ conda hpx environment.
+1. Enter the ~~Matrix~~ conda hpx environment. (if you have not already.)
    * `source activate hpx`
    * **NOTE**: you can leave the environment using `deactivate`
 
