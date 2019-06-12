@@ -65,9 +65,9 @@ You may need to specify their full path for them to work (e.g. `anaconda/bin/act
 
 3. Create an anaconda environment using `conda`.  
    **NOTE**: There are **TWO** ways of doing this, either is fine.
-   * `conda create --name hpx --file conda/conda_requirements.txt` -c conda-forge
+   * `conda create --name hpx --file conda/conda_requirements.txt -c conda-forge`
    **OR**
-   * `conda env create -f conda/conda_haruspex_190116.yml` -c conda-forge
+   * `conda env create -f conda/conda_haruspex_190116.yml -c conda-forge`
    
 4. Install mrcfile using pip (conda does not provide packages!)
    * `source activate hpx`
