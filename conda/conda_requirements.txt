@@ -2,12 +2,13 @@
 # $ conda create --name <env> --file <this file>
 # platform: linux-64
 _tflow_180_select=1.0=gpu
+_tflow_select=1.1.0=gpu
 absl-py=0.2.2=py36_0
 astor=0.6.2=py36_1
 blas=1.0=mkl
 bleach=1.5.0=py36_0
-ca-certificates=2018.03.07=0
-certifi=2018.4.16=py36_0
+ca-certificates=2019.3.9=hecc5488_0
+certifi=2019.3.9=py36_0
 cudatoolkit=9.0=h13b8566_0
 cudnn=7.1.2=cuda9.0_0
 cupti=9.0.176=0
@@ -25,10 +26,11 @@ markdown=2.6.11=py36_0
 mkl=2018.0.3=1
 mkl_fft=1.0.2=py36h651fb7a_0
 mkl_random=1.0.1=py36h4414c95_1
+mrcfile=1.1.2=py36_0
 ncurses=6.1=hf484d3e_0
 numpy=1.14.5=py36h1b885b7_4
 numpy-base=1.14.5=py36hdbf6ddf_4
-openssl=1.0.2o=h20670df_0
+openssl=1.0.2p=h470a237_2
 pandas=0.20.3=py36_0
 pip=10.0.1=py36_0
 protobuf=3.5.2=py36hf484d3e_1
@@ -36,6 +38,7 @@ python=3.6.6=hc3d631a_0
 python-dateutil=2.6.1=py36_0
 pytz=2017.2=py36_0
 readline=7.0=ha6073c6_4
+scipy=1.1.0=py36hc49cb51_0
 setuptools=39.2.0=py36_0
 six=1.11.0=py36_1
 sqlite=3.24.0=h84994c4_0

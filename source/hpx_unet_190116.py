@@ -660,12 +660,12 @@ def main(argv):
                 zoomFactor = np.asarray([1, 1, 1], dtype=np.float)
                 oldVoxelSize, oldCellVec = voxelSize, cellVec
                 rescaledFlag = False
+                originalMrcData = mrcData
                 if not args.no_zoom and (np.max(voxelSize) > 1.2 or np.min(voxelSize) < 1.0):
                     print(" -> VoxelSize {} out of [1.0; 1.2] bounds. Rescaling to 1.1 A/V.".format(voxelSize))
                     targetScale = np.asarray([1.1, 1.1, 1.1], dtype=np.float)
                     zoomFactor = np.divide(voxelSize, targetScale)
                     print(" ... previous shape, vector, voxel: {}, {}, {}".format(str(mrcData.shape), str(cellVec), str(voxelSize)))
-                    originalMrcData = mrcData
                     mrcData = ndimage.zoom(originalMrcData, zoom=zoomFactor)
                     cellVec = np.multiply(cellVec, zoomFactor)
                     voxelSize = targetScale
@@ -702,7 +702,7 @@ def main(argv):
                     print("\r {:6}/{} -> {}, {}, {}...     ".format(i, gridSize, z,y,x), end="")
                     annotatedMap[ftl[0]:bbr[0], ftl[1]:bbr[1], ftl[2]:bbr[2], :] = pmap["probabilities"]
 
-
+                print("")
 
                 # return to original scaling (same as training data generation!)
                 if rescaledFlag:
