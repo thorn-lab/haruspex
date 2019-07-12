@@ -2,13 +2,20 @@
 
 Haruspex is a Convolutional Neural Network capable of recognizing and predicting secondary structure elements and nucleotides in Cryo-EM reconstruction density.
 
-There are three ways of installing and using Haruspex:
+There are three ways of installing and using Haruspex which, depending on your machine, may take 5-20 minutes:
  * [Docker (recommended)](#haruspex-docker)
  * [Anaconda (GPU-Only)](#haruspex-conda)
  * Manual installation (discouraged)
 
+Although Haruspex has no special hardware requirements, it is recommended to run haruspex on a machine with 24 or more GBs of RAM and use a dedicated Tensorflow capable GPU.
+Depending on the machine in use, the size of the Cryo-EM map in question, and whether a GPU is available, map prediction may take anywhere from 3 to 30 minutes.
+
+For an in-depth example of what the predicted output looks like for [Human Ribonuclease P](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-9627), please take a look at figure 1 of our [preprint](https://www.biorxiv.org/content/10.1101/644476v1)
+The MRC file in question is available as [entry #9627](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-9627) of the [Electron Microscopy Data Bank (EMDB) at PDBe](https://www.ebi.ac.uk/pdbe/emdb/).
+
 For more information on what to do with the output, see the [results section](#haruspex-results)
 
+**If this software was useful to you, please cite us!**
 
 ## Haruspex-Docker
 
@@ -93,7 +100,7 @@ You may need to specify their full path for them to work (e.g. `anaconda/bin/act
 Haruspex will output it's predictions as MRC files with each class having it's own MRC file (E.g. `relion_filtered_helix.mrc`).  
 For further automatic processing using numpy, a NPZ file containing all classes is also created. 
 You can open the MRC files just like any other MRC files using Coot or UCSF Chimera.
-Output MRC files are uncompressed.
+For maximum compatibility output MRC files are uncompressed.
 
 
 
