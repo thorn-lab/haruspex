@@ -7,11 +7,11 @@ There are three ways of installing and using Haruspex which, depending on your m
  * [Anaconda (GPU-Only)](#haruspex-conda)
  * Manual installation (discouraged)
 
-Although Haruspex has no special hardware requirements, it is recommended to run haruspex on a machine with 24 or more GBs of RAM and use a dedicated Tensorflow capable GPU.
-Depending on the machine in use, the size of the Cryo-EM map in question, and whether a GPU is available, map prediction may take anywhere from 3 to 30 minutes.
+Although Haruspex has no special hardware requirements, it is recommended to run Haruspex on a machine with 24 GBs or more  of RAM and use a dedicated Tensorflow-capable GPU.
+Depending on the machine used, the size of the Cryo-EM map in question, and whether a GPU is available, map prediction may take anywhere from 3 to 30 minutes.
 
 For an in-depth example of what the predicted output looks like for [Human Ribonuclease P](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-9627), please take a look at figure 1 of our [preprint](https://www.biorxiv.org/content/10.1101/644476v1)
-The MRC file in question is available as [entry #9627](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-9627) of the [Electron Microscopy Data Bank (EMDB) at PDBe](https://www.ebi.ac.uk/pdbe/emdb/).
+The input MRC file for the discussed output in question is available as [entry #9627](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-9627) of the [Electron Microscopy Data Bank (EMDB) at PDBe](https://www.ebi.ac.uk/pdbe/emdb/).
 
 For more information on what to do with the output, see the [results section](#haruspex-results)
 
@@ -21,33 +21,33 @@ For more information on what to do with the output, see the [results section](#h
 
 ### Installation
 
-1. Install docker as described in the [official documentation](https://docs.docker.com/install/) by either using your systems package manager or compiling it from source.
+1. Install Docker as described in the [official documentation](https://docs.docker.com/install/) by either using your systems package manager or by compiling it from source.
    
 2. Start the docker service.
    * `sudo systemctl start docker`
    
-3. (OPTIONAL) Install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) for Nvidia GPU support (requires CUDA).
+3. (OPTIONAL) If needed, install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) for Nvidia GPU support (requires CUDA).
 
 4. Download repository.
    * `git clone https://gitlab.com/phimos/haruspex`
    * `cd haruspex`
 
-5. Build the docker container.   
-   Remember that you **must** be root or use sudo if you are not a member of the docker group.   
+5. Build the Docker container.   
+   Remember that you **must** be root or use sudo if you are not a member of the Docker group.
    (You can become a member of the docker group using `sudo usermod -a -G docker exampleUser`.)
    * CPU: `docker build -t haruspex --network=host . -f docker/Dockerfile`
    * GPU: `docker build -t haruspex --network=host . -f docker/Dockerfile_gpu`
    * **Remember the container ID**
   
-6. Test the docker container.
+6. Test the Docker container.
    * CPU: `docker run haruspex:latest --help`
    * GPU: `nvidia-docker run haruspex:latest --help`
 
 ### Predicting Maps
 
-Please note that depending on the source MRC file the prediction can be highly memory intensive.
+Please note that depending on the input MRC file, the prediction can be highly memory-intensive.
 
-1. Create a volume folder for docker; it will serve as the exchange point of input and output data. Copy the source MRC file.
+1. Create a volume folder for Docker; it will serve as the exchange point of input and output data. Copy the source MRC file.
    * `mkdir exchange`
    * `cp relion_filtered.mrc.gz exchange/relion_filtered.mrc.gz`
 
@@ -97,10 +97,11 @@ You may need to specify their full path for them to work (e.g. `anaconda/bin/act
 
 # Haruspex Results
 
-Haruspex will output it's predictions as MRC files with each class having it's own MRC file (E.g. `relion_filtered_helix.mrc`).  
+Haruspex will output the predictions as separate MRC files for each class (for example, `relion_filtered_helix.mrc`). For maximum compatibility with viewing programs, output MRC files are uncompressed.
+You can open the MRC files just like any other MRC map files using Coot or UCSF Chimera; in the publication, we used different colors for the maps:
+ * Orange for nucleotides
+ * Blue for alpha-helices
+ * Red for beta-sheets
+ * Grey for remaining unassigned density
+
 For further automatic processing using numpy, a NPZ file containing all classes is also created. 
-You can open the MRC files just like any other MRC files using Coot or UCSF Chimera.
-For maximum compatibility output MRC files are uncompressed.
-
-
-
