@@ -9,13 +9,14 @@ WORKDIR /opt/hpx
 # transfer files from the repository to the container /opt/hpx/
 COPY source /opt/hpx/
 COPY network/ /opt/hpx/
+COPY docker/requirements.txt /opt/hpx/
 
 # update container repository
 RUN apt-get update
 
 # install requirements
 RUN python -m pip --default-timeout=100 install --upgrade pip
-RUN pip install -r /haruspex/requirements.txt
+RUN pip install -r /opt/hpx/requirements.txt
 
 # define entry point with current neural network
 ENTRYPOINT ["/usr/bin/python3", "/opt/hpx/hpx_unet_190116.py", "-n", "/opt/hpx/hpx_190116"]
