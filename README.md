@@ -29,7 +29,7 @@ For more information on what to do with the output, see the [results section](#h
 3. (OPTIONAL) If needed, install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) for Nvidia GPU support (requires CUDA).
 
 4. Download repository.
-   * `git clone https://gitlab.com/phimos/haruspex`
+   * `git clone https://gitlab.com/phimos/haruspex.git`
    * `cd haruspex`
 
 5. Build the Docker container.   
