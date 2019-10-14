@@ -67,7 +67,7 @@ Please note that depending on the input MRC file, the prediction can be highly m
 You may need to specify their full path for them to work (e.g. `anaconda/bin/activate`).
 
 2. Download repository.
-   * `git clone https://gitlab.com/phimos/haruspex`
+   * `git clone https://gitlab.com/phimos/haruspex.git`
    * `cd haruspex`
 
 3. Create an anaconda environment using `conda`.  
