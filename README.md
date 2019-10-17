@@ -10,6 +10,8 @@ There are three ways of installing and using Haruspex which, depending on your m
 Although Haruspex has no special hardware requirements, it is recommended to run Haruspex on a machine with 24 GBs or more  of RAM and use a dedicated Tensorflow-capable GPU.
 Depending on the machine used, the size of the Cryo-EM map in question, and whether a GPU is available, map prediction may take anywhere from 3 to 30 minutes.
 
+Haruspex GPU support requires CUDA 9 or higher due to tensorflow requirements. To check whether your GPU supports this, see [this wikipedia article](https://en.wikipedia.org/wiki/CUDA#GPUs_supported).
+
 For an in-depth example of what the predicted output looks like for [Human Ribonuclease P](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-9627), please take a look at figure 1 of our [preprint](https://www.biorxiv.org/content/10.1101/644476v1)
 The input MRC file for the discussed output in question is available as [entry #9627](https://www.ebi.ac.uk/pdbe/entry/emdb/EMD-9627) of the [Electron Microscopy Data Bank (EMDB) at PDBe](https://www.ebi.ac.uk/pdbe/emdb/).
 
@@ -59,6 +61,8 @@ Please note that depending on the input MRC file, the prediction can be highly m
 
 
 ## Haruspex-Conda
+
+**NOTE: Haruspex-Conda requires a CUDA 9 (or higher) capable GPU. If you wish to run haruspex without GPU-support use the [docker versions](#haruspex-docker).**
 
 ### Installation
 
