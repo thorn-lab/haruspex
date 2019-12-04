@@ -100,8 +100,8 @@ You may need to specify their full path for them to work (e.g. `anaconda/bin/act
 Haruspex will output the predictions as separate MRC files for each class (for example, `relion_filtered_helix.mrc`). For maximum compatibility with viewing programs, output MRC files are uncompressed.
 You can open the MRC files just like any other MRC map files using Coot or UCSF Chimera; in the publication, we used different colors for the maps:
  * Orange for nucleotides
- * Blue for alpha-helices
- * Red for beta-sheets
+ * Red for alpha-helices
+ * Blue for beta-sheets
  * Grey for remaining unassigned density
 
 For further automatic processing using numpy, a NPZ file containing all classes is also created. 
