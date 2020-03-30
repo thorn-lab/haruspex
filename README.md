@@ -7,6 +7,9 @@ There are three ways of installing and using Haruspex which, depending on your m
  * [Anaconda (GPU-Only)](#haruspex-conda)
  * Manual installation (discouraged)
 
+You can also try Haruspex without installation in Google Colab:  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/phi-max/haruspex/blob/master/colab/Haruspex.ipynb) (requires Google account)
+
+
 Although Haruspex has no special hardware requirements, it is recommended to run Haruspex on a machine with 24 GBs or more  of RAM and use a dedicated Tensorflow-capable GPU.
 Depending on the machine used, the size of the Cryo-EM map in question, and whether a GPU is available, map prediction may take anywhere from 3 to 30 minutes.
 
