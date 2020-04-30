@@ -74,9 +74,7 @@ You may need to specify their full path for them to work (e.g. `anaconda/bin/act
    * `cd haruspex`
 
 3. Create an anaconda environment using `conda`.  
-   **NOTE**: There are **TWO** ways of doing this, either is fine.
-   * `conda create --name hpx --file conda/conda_requirements.txt -c conda-forge`
-   **OR**
+   **NOTE**: There are **TWO** ways of doing this, the following is recommended.
    * `conda env create -f conda/conda_haruspex_190116.yml`
    
 4. Install mrcfile using pip (conda does not provide packages!)
@@ -89,12 +87,14 @@ You may need to specify their full path for them to work (e.g. `anaconda/bin/act
 1. Enter the ~~Matrix~~ conda hpx environment. (if you have not already.)
    * `source activate hpx`
    * **NOTE**: you can leave the environment using `deactivate`
+2. If you want to run on CPU, you need to tell tensorflow to not use GPU.
+   * export CUDA_VISIBLE_DEVICES=""
 
-2. Run Haruspex
+3. Run Haruspex
    * `cd haruspex`
    * `source/hpx_unet_190116.py -n network/hpx_190116 -d map-predict /path/to/your/relion_filtered.mrc.gz -o /your/output/directory/`
 
-3. Your results are stored in `/your/output/directory/` as MRC and NPZ files. [See the results section for more info.](#haruspex-results)
+4. Your results are stored in `/your/output/directory/` as MRC and NPZ files. [See the results section for more info.](#haruspex-results)
 
 
 
