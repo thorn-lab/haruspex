@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# This version uses 70³ 3-channel SHN shnData as input/src data.
+# This version version 1.0 (190116) uses 70³ 3-channel SHN shnData as input/src data.
 ################################################################################
 # ----- IMPORT --------------------------------------------------------------- #
 ################################################################################
